@@ -162,10 +162,21 @@ Another choice for enumeration cases is to have values associated with the case
 These values are determined when you make the instance and they can be different for each instance
 => associated values as behaving like stored properties
 
-- userdefaults
+- Userdefaults
 An interface to the users’ default database, where you store key-value pairs persistently across launches of your app
+    - 코코아 터치 프레임워크가 제공하는 객체 (앱을 삭제하기 전까지는 반영구적 저장)
+    - 내부적으로 plist 파일을 이용하여 값을 저장
+    - 스위프트 기본 자료형 + NS 자료형
+    - 시스템이 자동 생성하여 제공하는 단일 객체
+    - class property => UserDefaults.standard
 
 https://developer.apple.com/documentation/foundation/userdefaults
+
+- AppDelegate 에 저장하기?
+    - UIApplication 객체로 부터 생명 주기 관리를 위임받아 커스텀 코드 처리하는 역할 (기본)
+    - 앱 전체를 통틀어 단 하나 존재하고, 여러 뷰 컨트롤러에서 접근 가능하며, 앱프로세스의 생명/소멸을 함께 하므로 
+    - 이 객체에 값을 저장하면 앱이 종료되지 않는 한 값을 계속 유지할 수 있다
+    - AppDelegate class에 변수 추가하고 값을 저장하는 방식
 
 - 프로그램이 뷰 정보를 어떻게 읽을까?
 
