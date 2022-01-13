@@ -56,11 +56,14 @@ Collection view는 다양한 화면 구현 가능
 콘텐츠의 표현, 사용자와의 상호작용과 관련된 것들을 관리하는 객체 
 
 #### (3) Notification Center
+
 등록된 이벤트가 발생하면 이벤트에 대한 액션을 실행한다
 애플리케이션 내부에서 발생한 이벤트 메세지가 어디에서 발생했든..
 Event 는 post 메서드를 사용해 메세지를 보내고 
 post에 대한 observer 를 등록한다.
 Observer 를 등록하면 registered 된 상황이 발생하는지 계속 주시하게 되고 발생할 경우 액션을 취한다.
+
+- UIKit, Foundation 과 같은 수준의 독립된 프레임워크
 
 - NotificationCenter.default.post
     - name : NSNotification.Name(“rawValue”)
