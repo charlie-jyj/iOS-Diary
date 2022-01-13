@@ -9,20 +9,20 @@
 ### 2) 기본 개념
 #### (1) UITabBarController
 
-UITabBar?
+- UITabBar?
 앱에서 서로 다른 하위 작업, 뷰, 모드 사이의 선택을 할 수 있도록
 탭바에 하나 혹은 하나 이상의 버튼을 보여주는 컨트롤
 
-UITabBarItem
+- UITabBarItem
 탭바를 구성하는 하나 이상의 아이템, 클릭 시 강조되고 액션 동작
 
-UITabBarController
+- UITabBarController
 컨테이너 뷰 컨트롤러
 다중 선택 인터페이스 관리, UIViewController 를 상속 받는다
 선택에 따라 어떤 자식 뷰 컨트롤러를 보여줄 것인지 결정
 버튼에 상응하는 뷰 컨트롤러의 루트 뷰 (custom contents + tab bar view)를 보여준다.
 
-Tab bar view?
+- Tab bar view?
 사용자를 위한 선택 컨트롤러 제공하고 하나 이상의 tab bar item을 가진다
 
 #### (2) UICollectionView
@@ -32,27 +32,25 @@ Table view 처럼 scroll view 를 상속받고 있고 다양한 레이아웃을 
 Table view는 리스트만 보여줄 수 있지만
 Collection view는 다양한 화면 구현 가능 
 
-UICollectionViewLayout
-- 레이아웃 객체 통해 아이템 배치, 시각적 스타일 결정
-- cell, supplementary view, bound, decoratation view의 위치 결정
-- 시각적 상태를 컬렉션 뷰에 전달
+- UICollectionViewLayout
+    - 레이아웃 객체 통해 아이템 배치, 시각적 스타일 결정
+    - cell, supplementary view, bound, decoratation view의 위치 결정
+    - 시각적 상태를 컬렉션 뷰에 전달
 
-UICollectionViewFlowLayout
-- 정렬
-
-
+- UICollectionViewFlowLayout
+> 정렬
 1. Flow 레이아웃 객체를 작성하고 컬렉션 뷰에 이를 할당한다 (컬렉션 레이아웃으로 지정한다)
 2. 셀의 width, height 를 정한다
 3. 필요한 경우 셀들의 좌우 최소 간격, 위아래 최소 간격 설정
 4. 섹션에 header 와 footer 가 있다면 크기 지정
 5. 레이아웃의 스크롤 방향 설정
 
-2 지정 필수, 지정하지 않으면 0으로 설정되어 화면에 보이지 않게 된다.
+*2 지정 필수, 지정하지 않으면 0으로 설정되어 화면에 보이지 않게 된다.
 
--UICollectionViewDataSource
+- UICollectionViewDataSource
 컬렉션 뷰로 보여지는 콘텐츠들을 관리하는 객체
 
--UICollectionViewDelegate
+- UICollectionViewDelegate
 콘텐츠의 표현, 사용자와의 상호작용과 관련된 것들을 관리하는 객체 
 
 #### (3) Notification Center
@@ -62,17 +60,17 @@ Event 는 post 메서드를 사용해 메세지를 보내고
 post에 대한 observer 를 등록한다.
 Observer 를 등록하면 registered 된 상황이 발생하는지 계속 주시하게 되고 발생할 경우 액션을 취한다.
 
-NotificationCenter.default.post
-- name : NSNotification.Name(“rawValue”)
-- object : the object posting the notification // 전달하고자 하는 객체를 담으면 됨
-- userinfo: a user info dictionary with optional information about the notification
+- NotificationCenter.default.post
+    - name : NSNotification.Name(“rawValue”)
+    - object : the object posting the notification // 전달하고자 하는 객체를 담으면 됨
+    - userinfo: a user info dictionary with optional information about the notification
 
-NotificationCenter.default.addObserver
-- observer: An object to register as an observer //self
--  selector: specifies the message the receiver sends observer to alert it to the notification posting.
-Selector specifies must have one and only one argument (an instance of NSNotification)
-- name: the name of the notification
-- object: the object that sends notifications to the observer. When nil, the Notification Center doesn’t use sender names as criteria for delivery  
+- NotificationCenter.default.addObserver
+    - observer: An object to register as an observer //self
+    -  selector: specifies the message the receiver sends observer to alert it to the notification posting.
+    Selector specifies must have one and only one argument (an instance of NSNotification)
+    - name: the name of the notification
+    - object: the object that sends notifications to the observer. When nil, the Notification Center doesn’t use sender names as criteria for delivery  
 
 
 ### 3) 새롭게 배운 것들
@@ -81,15 +79,13 @@ Selector specifies must have one and only one argument (an instance of NSNotific
 각각 인내심과 자존심으로 이해하기로 했다.
 인내심이 낮으면 팍 터져버리고 자존심이 강하면 찌그러지지 않는다.
 
--textview 의 border 값에 접근하기 위해선, textview.layer
+- textview 의 border 값에 접근하기 위해선, textview.layer
 
--datetimepicker
-
-datePicker.addTarget 
-: associates target object and action method with the control
-+ target: event.target object (viewcontroller)
-+ action: #selector(method) => event listener 와 같다
-+ for: event type
+- datetimepicker
+    + datePicker.addTarget : associates target object and action method with the control
+        + target: event.target object (viewcontroller)
+        + action: #selector(method) => event listener 와 같다
+        + for: event type
 
 - Action 메서드는 3가지 form 중 하나를 선택해야 한다.
 func doSomething (sender, forEvent)
@@ -101,9 +97,9 @@ Textviewdidchange method 구현
 일반적인 textfield 는 addtarget으로 eventlistener를 달아준다.
 
 - ui control의 종류에 따라 for 에 들어가는 touch event 의 동작이 달라지는데, 
-Button : touchDown, touchUpInside
-slider: valueChanged
-textField: editingChanged
+    - Button : touchDown, touchUpInside
+    - slider: valueChanged
+    - textField: editingChanged
 
 - editingChanged 이벤트는 키보드 입력으로 활성화되므로 
 Date picker 값 변경을 잡아내지 못한다. 
@@ -122,7 +118,8 @@ Is a subclass of UICollectionViewLayout
 Hardward 스크린의 너비 값
 
 - 리스트 내림차순 정렬하기
-``` self.diaryList = self.diaryList.sorted(by: {
+```swift
+self.diaryList = self.diaryList.sorted(by: {
             $0.date.compare($1.date) == .orderedDescending
         })
 
@@ -143,11 +140,13 @@ NSCoder? An abstract class that serves as the basis for objects that enable arch
 
 https://developer.apple.com/documentation/foundation/nscoder
 
+```
 + concrete subclasses to transfer objects and other values between memory and some other format
 + archiving : storing objects and data on diet
 + distribution: copying objects and data items between different processes or threads
 + concrete subclasses of NSCoder are “coder classes” and instances of these classes are “coder objects” (simply coders)
 + concrete subclass 한다는 것은 abstract 클래스를 extend 하는 것을 말한다.
+```
 
 - UICollectionViewDelegate vs UICollectionViewDelegateFlowLayout
 ui collection view delegate : the methods adopted by the object you use to manage user interactions with items in a collection view
@@ -176,7 +175,7 @@ Xib (뷰 정보를 담고 있음) = 빌드 => NIB (바이너리) 파일로 컴�
 스토리보드: 뷰 정보와, 뷰와 뷰 사이의 관계에 대한 정보를 가지고 있는 파일
 
 
--notificationcenter  addobserver 가 된 뷰컨트롤러가 de init 될때
+- notificationcenter  addobserver 가 된 뷰컨트롤러가 de init 될때
 Remove observer 해주어야 함
 (Ios9.0+, macOS 10.11 + 은 system cleans up)
 https://developer.apple.com/documentation/foundation/notificationcenter/1413994-removeobserver
@@ -189,21 +188,21 @@ Observer 인 객체는 모두 그것을 알고 있으니 변화 상태를 관리
 일기 수정후 컬렉션 뷰의 값이 바뀌지 않아서 열받았는데 
 Collecitonview.reloadData 안 해서 그런 것이었네
 
-- UIImage(systemname:)
++ UIImage(systemname:)
 시스템에 기본적으로 사용되는 이미지를 사용할 수 있다
 
-+ userdefaults.standard
-+ notificationCenter.default
+    + userdefaults.standard
+    + notificationCenter.default
 
 - 수정하면서 즐겨찾기가 해제되는 문제 발생 => switch 문에서 처리한다. 
 
 - index out of range 문제 해결하기
 => uuid 설정하기
 
+```swift
 self.diaryList.firstIndex(where: { $0.uuidString == diary.uuidString }) else { return }
-
 UUID().uuidString
-
+```
 
 
 
