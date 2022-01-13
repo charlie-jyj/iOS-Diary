@@ -25,6 +25,8 @@
 - Tab bar view?
 사용자를 위한 선택 컨트롤러 제공하고 하나 이상의 tab bar item을 가진다
 
+<img src="https://docs-assets.developer.apple.com/published/a0fd9e66d5/1bc595c9-a817-4057-b8b9-ecaa4e8647de.png">
+
 #### (2) UICollectionView
 데이터 항목의 정렬된 컬렉션을 관리하고 커스텀한 레이아웃을 사용해 표시하는 객체
 Table view 처럼 scroll view 를 상속받고 있고 다양한 레이아웃을 보여줄 때 사용
